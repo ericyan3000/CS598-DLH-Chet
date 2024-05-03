@@ -26,7 +26,7 @@ def split_patients(patient_admission, admission_codes, code_map, train_num, test
     #         max_admission_num = len(admissions)
     #         pid_max_admission_num = pid
     # common_pids.add(pid_max_admission_num)
-    # print("common_pids: %d" % len(common_pids))
+    print("common_pids: %d" % len(common_pids))
     remaining_pids = np.array(list(set(patient_admission.keys()).difference(common_pids)))
     print("remaining_pids: %d" % len(remaining_pids))
     np.random.shuffle(remaining_pids)
