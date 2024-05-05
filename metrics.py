@@ -75,6 +75,23 @@ def evaluate_codes(model, dataset, loss_fn, output_size, historical=None):
     return avg_loss, f1_score
 
 
+def normalize_scores(loss, auc, f1):
+    """ Normalize metrics to be in the same scale, higher is better """
+    norm_loss = 1 / (1 + loss)  # Transform loss so that higher is better
+    return norm_loss, auc, f1
+
+
+
+def compute_composite_score(loss, auc, f1, weights={'loss': 0.4, 'auc': 0.3, 'f1': 0.3}):
+    """ Compute a weighted sum of normalized scores """
+    norm_loss, norm_auc, norm_f1 = normalize_scores(loss, auc, f1)
+    composite_score = (weights['loss'] * norm_loss +
+                       weights['auc'] * norm_auc +
+                       weights['f1'] * norm_f1)
+    return composite_score
+
+
+
 def evaluate_hf(model, dataset, loss_fn, output_size=1, historical=None):
     model.eval()
     total_loss = 0.0
@@ -90,14 +107,14 @@ def evaluate_hf(model, dataset, loss_fn, output_size=1, historical=None):
         total_loss += loss.item() * output_size * len(code_x)
         outputs.append(output.detach().cpu().numpy())
         pred = (output > 0.5).int()
-        preds.append(pred.numpy())
+        preds.append(pred.cpu().numpy())  # Ensure tensor is moved to CPU before conversion
         print('\r    Evaluating step %d / %d' % (step + 1, len(dataset)), end='')
     #print("dataset size: ", dataset.size())
     avg_loss = total_loss / dataset.size()
-    print("\noutputs: ", outputs) 
     outputs = np.concatenate(outputs)
     preds = np.concatenate(preds)
     auc = roc_auc_score(labels, outputs)
     f1_score_ = f1_score(labels, preds)
     print('\r    Evaluation: loss: %.4f --- auc: %.4f --- f1_score: %.4f' % (avg_loss, auc, f1_score_))
-    return avg_loss, f1_score_
+    current_score = compute_composite_score(avg_loss, auc, f1_score_)
+    return current_score
