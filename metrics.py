@@ -117,4 +117,4 @@ def evaluate_hf(model, dataset, loss_fn, output_size=1, historical=None):
     f1_score_ = f1_score(labels, preds)
     print('\r    Evaluation: loss: %.4f --- auc: %.4f --- f1_score: %.4f' % (avg_loss, auc, f1_score_))
     current_score = compute_composite_score(avg_loss, auc, f1_score_)
-    return current_score
+    return current_score, avg_loss, auc, f1_score_
