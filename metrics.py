@@ -82,7 +82,7 @@ def normalize_scores(loss, auc, f1):
 
 
 
-def compute_composite_score(loss, auc, f1, weights={'loss': 0.4, 'auc': 0.3, 'f1': 0.3}):
+def compute_composite_score(loss, auc, f1, weights={'loss': 0.2, 'auc': 0.4, 'f1': 0.4}):
     """ Compute a weighted sum of normalized scores """
     norm_loss, norm_auc, norm_f1 = normalize_scores(loss, auc, f1)
     composite_score = (weights['loss'] * norm_loss +
@@ -118,3 +118,5 @@ def evaluate_hf(model, dataset, loss_fn, output_size=1, historical=None):
     print('\r    Evaluation: loss: %.4f --- auc: %.4f --- f1_score: %.4f' % (avg_loss, auc, f1_score_))
     current_score = compute_composite_score(avg_loss, auc, f1_score_)
     return current_score, avg_loss, auc, f1_score_
+
+
