@@ -9,3 +9,5 @@ data/mimic3/encoded/pids.pkl
 data/mimic3/parsed/code_levels.pkl
 data/mimic3/raw/README.md
 data/mimic3/raw/SHA256SUMS.txt
+preprocess/__pycache__/auxiliary.cpython-39.pyc
+preprocess/__pycache__/auxiliary.cpython-39.pyc
