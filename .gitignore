@@ -1,2 +1,11 @@
 data/mimic3/raw/
 data/mimic3/raw/demo/
+CS598-DLH-Chet.code-workspace
+__pycache__/metrics.cpython-39.pyc
+data/mimic3/encoded/code_map.pkl
+data/mimic3/encoded/codes_encoded.pkl
+data/mimic3/encoded/patient_admission.pkl
+data/mimic3/encoded/pids.pkl
+data/mimic3/parsed/code_levels.pkl
+data/mimic3/raw/README.md
+data/mimic3/raw/SHA256SUMS.txt

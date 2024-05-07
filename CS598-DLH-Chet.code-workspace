@@ -2,10 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"name": "Chet",
-			"path": "../../Chet/Chet"
 		}
 	],
 	"settings": {}
