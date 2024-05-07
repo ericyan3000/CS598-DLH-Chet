@@ -149,6 +149,9 @@ def show_heart_failure_stat(hf_prefix, codes_y, code_map):
     hfs = np.zeros((len(code_map),), dtype=int)
     hfs[hf_list] = 1
     hf_exist = np.logical_and(codes_y, hfs)
-    print("%d patients have heart failure out of %d patients" % (np.sum(np.sum(hf_exist, axis=-1) > 0), len(codes_y)))
+    count_hf = np.sum(np.sum(hf_exist, axis=-1) > 0)
+    count_patient = len(codes_y)
+    print("%d patients have heart failure out of %d patients" % (count_hf, count_patient))
+    return count_hf, count_patient
 
 
