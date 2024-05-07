@@ -44,7 +44,7 @@ def build_code_xy(pids, patient_admission, admission_codes_encoded, max_admissio
     y = np.zeros((n, code_num), dtype=int)
     lens = np.zeros((n,), dtype=int)
     for i, pid in enumerate(pids):
-        print('\r\t%d / %d' % (i + 1, len(pids)), end='')
+        #print('\r\t%d / %d' % (i + 1, len(pids)), end='')
         admissions = patient_admission[pid]
         for k, admission in enumerate(admissions[:-1]):
             codes = admission_codes_encoded[admission[EHRParser.adm_id_col]]
