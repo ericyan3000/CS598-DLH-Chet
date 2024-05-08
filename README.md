@@ -1,7 +1,7 @@
 # CS598-DLH-Chet
 
 Original Paper: Context-aware Health Event Prediction via Transition Functions on Dynamic Disease Graphs <br>
-[link] (https://arxiv.org/abs/2112.05195)
+[link] (https://arxiv.org/abs/2112.05195) <br>
 [Original paper repo] (https://github.com/LuChang-CS/Chet)
 
 [Project Video Presentation] (https://drive.google.com/file/d/15SA6steb5M_WQuKn8c-vVEDVDO9UUcD6/view?usp=drive_link)
