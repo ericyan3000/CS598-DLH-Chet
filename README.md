@@ -10,4 +10,4 @@ Original Paper: Context-aware Health Event Prediction via Transition Functions o
 The data is available in https://physionet.org/content/mimiciii/1.4/. The only two datasets used in this project is `ADMISSIONS.csv` and `DIAGNOSES_ICD.csv`. These two files should be placed under the directory `data\mimic3\raw` for data pre-processing.
 
 # Run
-Open and run the final.ipynb jupyter notebook file.
+Open and run the final.ipynb jupyter notebook file. The environment requirements are specified in the notebook file.
